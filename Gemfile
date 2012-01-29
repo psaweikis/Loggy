@@ -8,6 +8,7 @@ gem 'rails', '3.2.0'
 gem 'mysql2'
 gem 'haml'
 gem 'jquery-rails'
+gem 'will_paginate', '3.0.pre4'
 
 group :development do
   gem 'annotate', :git => 'git://github.com/jeremyolliver/annotate_models.git', :branch => 'rake_compatibility'

@@ -12,10 +12,10 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: syslog
+  database: Syslog
   pool: 5
-  username: syslog
-  password: S3arstower
+  username: rsyslog
+  password: <%= begin IO.read("#{ENV['HOME']}/.loggy_db_pwd").chomp rescue "" end %>
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: Syslog
   pool: 5
-  username: syslog
-  password: S3arstower
+  username: rsyslog
+  password: <%= begin IO.read("#{ENV['HOME']}/.artis_db_pwd").chomp rescue "" end %>
   socket: /var/run/mysqld/mysqld.sock

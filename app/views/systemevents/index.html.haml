@@ -1,30 +1,22 @@
-%h1 Listing systemevents
+%h1 Listing Syslog Events
+
+= form_tag systemevents_path, :method => 'get' do
+  %p  
+    = text_field_tag :search, params[:search]
+    = submit_tag "Search", :name => nil    
 %table
   %tr
-    %th Technician
-    %th User
-    %th Category
-    %th Priority
-    %th Environment
-    %th Status
-    %th Market
-    %th Submarket
-    %th Subject
-    %th Description
-    %th Notes
-  - @tickets.each do |ticket|
+    %th= "Time"
+    %th= "Facility"
+    %th= "Priority"
+    %th= "From Host"
+    %th= "Message"
+  - @systemevents.each do |systemevent|
     %tr
-      %td= Technician.where(:id => ticket.technician_id).first.user_id
-      %td= User.where(:id => ticket.user_id).first.name
-      %td= Category.where(:id => ticket.category_id).first.name
-      %td= Priority.where(:id => ticket.priority_id).first.name
-      %td= Environment.where(:id => ticket.environment_id).first.name
-      %td= Status.where(:id => ticket.status_id).first.name
-      %td= Market.where(:id => ticket.market_id).first.name
-      %td= Submarket.where(:id => ticket.submarket_id).first.name
-      %td= ticket.subject
-      %td= ticket.description
-      %td= ticket.notes.count
-      %td= link_to 'Show', ticket
+      %td= systemevent.devicereportedtime.in_time_zone("Central Time (US & Canada)").strftime("%Y-%m-%d %I:%M:%S%p %Z")
+      %td= systemevent.facility
+      %td= systemevent.priority
+      %td= systemevent.fromhost
+      %td= systemevent.message
+=will_paginate
 %br/
-= link_to 'New Ticket', new_ticket_path

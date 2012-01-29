@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/jeremyolliver/annotate_models.git
+  revision: 4d57e4fe6360125f17886168120a48091a268e45
+  branch: rake_compatibility
+  specs:
+    annotate (2.4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,7 +35,6 @@ GEM
     activesupport (3.2.0)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    annotate (2.4.0)
     arel (3.0.0)
     builder (3.0.0)
     coffee-rails (3.2.1)
@@ -100,12 +106,13 @@ GEM
     uglifier (1.2.2)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    will_paginate (3.0.pre4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate
+  annotate!
   coffee-rails (~> 3.2.1)
   haml
   jquery-rails
@@ -113,3 +120,4 @@ DEPENDENCIES
   rails (= 3.2.0)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  will_paginate (= 3.0.pre4)
